@@ -1,0 +1,237 @@
+@@ mkdir + nomedapasta ---> Cria uma nova pasta
+
+@ clear ---> limpa a tela 
+
+@@ git init ---> Inicia o repositorio para visualizar todas as mudanças
+	*OBS.: deve esta dentro na pasta para executar esse comando 
+
+@ git config --global user.name "Nomedousuario" ---> cria o nome do usuario 
+
+@ git config --global user.email "Emaildousuario" ---> cria o email do usuario 
+	*OBS.: deve ser o mesmo do GitHub repositório online
+
+@ git config --global core.editor +(comandodoeditor) ---> incluir o editor principal
+	*OBS.: se não informar por padrão esta configurado o "vim"
+
+@ git config +(informação desejada) ---> retorna do valor incluido 
+EX.:    
+	danie_quua39m@DJ MINGW64 ~/CursoGit (master)
+	$ git config user.email
+	Daniel.sax@outlook.com
+
+@ git config --list ---> Retorna uma lista com as informações do git
+
+@ cd +(nomedapasta) ---> Entra na pasta informada
+
+@ cd .. ---> volta para a pasta anterior
+
+@ ls -la ---> lista os diretorios que existem 
+
+@ git .git/ ---> abre o diretorio
+
+@ ls ---> lista o que te na pasta
+
+@ 	vim +(nomedoarquivo)
+	*OBS:	comando do vim:
+		i ---> para abrir a edição
+		ESC ---> para fechar a edição
+		:w ---> salvar arquivo
+		:q ---> para fechar o arquivo
+		:wq --->salvar e sair 
+
+@  git status ---> informa como esta o repositorio no momento 
+	*OBS.: Untracked files ---> arquivos não reconehcidos pelo Git
+		EX. sem add o arquivo --->
+			Untracked files:
+			  	(use "git add <file>..." to include in what will be committed)
+			        readme.md
+
+
+@ git add +(NomedoArquivo) ---> adiciona o arquivo para o Git rastrear
+	EX. depois de add o arquivo ---> utilizando comonado "git status"
+			Changes to be committed:
+			  (use "git rm --cached <file>..." to unstage)
+			        new file:   readme.md
+	*OBS.: Toda modificação deve ser adicionada novamente 
+		EX.: arquivo modificado --->
+			$ git status
+			On branch master
+
+			No commits yet
+
+			Changes to be committed:
+			  (use "git rm --cached <file>..." to unstage)
+			        new file:   readme.md
+
+			Changes not staged for commit:
+			  (use "git add <file>..." to update what will be committed)
+			  (use "git restore <file>..." to discard changes in working directory)
+			        modified:   readme.md
+@ git commit -m "(ComentarioSobreCommit)" ---> realiza o Commit de tudo que esta com o status: pronto para commit (comando anterior)
+		*OBS.: -m ---> adiciona um comentario no Commit realizado 
+		*OBS2.: COMMITAR ARQUIVO SEM ADICIONAR DA ERRRO
+			$ git commit -m "Vai dar erro por que nao Adicionou o arquivo"
+			On branch master
+			Changes not staged for commit:
+			  (use "git add <file>..." to update what will be committed)
+			  (use "git restore <file>..." to discard changes in working directory)
+			        modified:   readme.md
+
+			no changes added to commit (use "git add" and/or "git commit -a")
+
+@ git commit -am "(ComentarioSobreCommit)" ---> Commit arquivos que ja existirão (pulando o comando git add)
+
+
+@ git log ---> Historico dos arquivos que realizaram commit
+		EX.:$ git log
+			commit 3aa433575af9b989c5104b52f81efe0a50b239bf (HEAD -> master)---------> Identificação do commit
+			Author: Daniel Araujo <Daniel.sax@outlook.com> 			---------> Autor da modificação
+			Date:   Sat Jun 13 13:49:47 2020 -0300 			-----------------> Data 
+
+			    add alterações no readme.md 			-----------------> Mensagem adicionada no commit
+
+			commit 233027d0d09daf651817263acc84a62bee326d37		 ----------------> Identificação do commit
+			Author: Daniel Araujo <Daniel.sax@outlook.com> 		-----------------> Autor da modificação
+			Date:   Sat Jun 13 13:33:28 2020 -0300 			-----------------> Data 
+
+			    Add readme.md   					-----------------> Mensagem adicionada no commit
+
+
+@ git log --decorate ---> Apresenta mais informações refrente de breach
+
+
+@ git log --author="(NomedoAutor)"---> filtra pelo autor do commit
+
+@ git shortlog ---> lista os autores /e quantos commit realizarão /e quais são esse commites
+		EX.:
+			$ git shortlog  
+			Daniel Araujo (2):
+			      Add readme.md
+			      add alterações no readme.md
+
+
+
+@ git shortlog -sn ---> Quantidade de commit e nome da pessoa
+
+@ git log --graph ---> Mostra em forma grafica os branch e versões de todos os commits
+
+@ git show  ---> Mostra as alterações referente ao ultimo commit
+
+@ git show +(NumerodeIndentificaçãodoCommit) ---> Mostra as alterações realizadas de acordo o cod. do commit
+EX.:
+			$ git show 233027d0d09daf651817263acc84a62bee326d37
+			commit 233027d0d09daf651817263acc84a62bee326d37
+			Author: Daniel Araujo <Daniel.sax@outlook.com>
+			Date:   Sat Jun 13 13:33:28 2020 -0300
+
+			    Add readme.md
+
+			diff --git a/readme.md b/readme.md
+			new file mode 100644
+			index 0000000..01739e7
+			--- /dev/null
+			+++ b/readme.md
+			@ -0,0 +1,4 @@
+			+tudo do comerço !!!
+			+13/12/2020
+			+ modificando o arquivo
+			+
+
+
+@ git diff ---> Mostras as ultimas Modificações/alterações
+			*OBS.: Utilizado antes de realizar um commit para verificar as alterações
+
+@ git diff- name-only ---> Mostra somente o nome do arquivo que foi modificados antes de realizar o comando 'git add(NomedoArquivo)'
+
+
+@ git checkout +(NomedoArquivo) ---> Retorna para o status antes da edição
+			*OBS.: comando utilizado com arquivos com status "modificado"
+			*OBS.: antes do git add
+
+
+@ git reset HEAD +(NomedoArquivo) ---> Retira o arquivo staged (Retira da fila do pronto para Commit, voltando ao status de modificado)
+
+@ git reset --soft / --mixed / --hard (Volta o commit)
+	
+	@ git reset --soft +(NumerodeIndentificaçãodoCommit) ---> Elimina o comit realizado e volta para status de Pronto para Commit
+	@ git reset --mixed +(NumerodeIndentificaçãodoCommit) ---> Elimina o comit realizado e volta o arquivo para status de Modificado
+	@ git reset --hard +(NumerodeIndentificaçãodoCommit) ---> Elimina o comit realizado e todas as alterações realizadas nos arquivos 
+			*OBS.:selecionar o Numero de Identificação do commit anterior ao erro
+			*OBS.: Altera o Historico no repositorio remoto
+
+@
+
+					##--GERANDO UMA CHAVE SSH NO SITE GITHUB--##
+		Passos:	
+
+			1º Digitar no Git ->  ssh-keygen -t rsa -b 4096 -C + "Emaildousuario" ---> Cria sua chave *OBS.: deve ser o mesmo do GitHub repositório online
+			
+			
+			2º Digitar no Git -> cd ~/.ssh/ ---> Abre o Diretorio onde fica as chaves
+			
+			3º Digitar no Git -> cat id_rsa.pub ---> Para ser mostrada sua chave pública
+
+			4ºNo Git -> Copie sua chave
+
+			5º No GitHub -> Acesse o pefil e selecione a opção: >> Settings(Definições) >> SSH and GPG keys >> New SSH key 
+			
+			6º No GitHub -> Adicionar a chave e finalizar
+
+			7ºFim
+
+
+
+
+
+@ git remote add origin git@github.com:DJDisclinc/Cursos.git ---> Liga o repositorio remoto
+		*OBS.: As pastas '.ssh' e '.git' devem está juntas 
+
+
+@ git remote ---> Mostra os Repositorios 
+
+@ git remote -v ---> Mostra os Repositorios e mais informações 
+
+@ git remote rm (Nomedo repositorio) ---> Remove o repositorio
+
+@ git push -u origin master ---> Envia todos os commits para o Repositorio Remoto
+		*OBS.: Na primeira fez e apresentada uma mensagem 
+
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
