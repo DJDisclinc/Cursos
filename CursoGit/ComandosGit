@@ -99,6 +99,7 @@ EX.:
 
 @ git log --decorate ---> Apresenta mais informações refrente de breach
 
+@ git log --stat --->  consultar os commits, e suas estatísticas abreviadas, criados no Github
 
 @ git log --author="(NomedoAutor)"---> filtra pelo autor do commit
 
@@ -187,9 +188,9 @@ EX.:
 		*OBS.: As pastas '.ssh' e '.git' devem está juntas 
 
 
-@ git remote ---> Mostra os Repositórios 
+@ git remote ---> Mostra os Repositórios remoto
 
-@ git remote -v ---> Mostra os Repositórios e mais informações 
+@ git remote -v ---> Mostra os Repositórios e mais informações /todos os repositórios remotos sejam listados
 
 @ git remote rm (Nomedo repositório) ---> Remove o repositório
 
@@ -209,9 +210,11 @@ EX.:
 	---> Cria uma cópia de outro (outraPessoa) repositório para o seu repositório
 	---> Envia modificações (GITHUB)para o dono do repositório
 
-@ O que é um branch? ---> É um ponteiro móvel que leva a um commit
+			@ O que é um branch? ---> É um ponteiro móvel que leva a um commit
 
-@ git checkout -b 'NomedoBranch' ---> Cria um no branch 
+@ git branch +(NomedoBranch) ---> Cria uma branch mas vc se mantem na branch atual
+
+@ git checkout -b 'NomedoBranch' ---> Cria uma branch e ja abre a branch criada
 
 @ git branch ---> Lista os branch ativos 
 	EX.:
@@ -222,9 +225,11 @@ EX.:
 
 @ git checkout NomedaBranch  ---> Navega pelas branch
 
-@ git push origin :NomedaBranch ---> Apaga no GitHub
+@ git push origin :NomedaBranch ---> Envia a Branch para o repositorio remoto ( GitHub)
 
 @ git branch -D NomedaBranch ---> Apaga o Branch
+
+
 
 				##-- Unindo branch para Realizar um Commit --##
 
@@ -267,15 +272,14 @@ EX.:
 
 
 
+@ git checkout -- NOME_DO_ARQUIVO ---> 'resetar' as alterações de um arquivo
 
-
-
+@ git commit --amend---> editar a mensagem do último commit
 
 
 
 
 ----------------------------------------------------------------------FIM------------------------------------------------------------------------------------------
-
 
 
 
